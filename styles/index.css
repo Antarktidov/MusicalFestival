@@ -1,0 +1,383 @@
+:root {
+    --pink-1: #E6768C;
+    --pink-2: #780C31;
+    --pink-3: #B35A63;
+    --pink-4: #550018;
+    --pink-5: #FFB4BB;
+
+    --green-1: #005B4B;
+}
+.invisible {
+    display: none;
+}
+.page {
+    width: 100vw;
+    min-height: 100vh;
+    position: relative; /* Изменено с fixed на relative */
+    overflow: auto; /* Добавлено для возможности прокрутки, если содержимое превышает высоту экрана */
+}
+
+.light-page {
+    background-color: var(--pink-1);
+}
+
+.dark-page {
+    background-color: var(--pink-4);
+}
+
+.header {
+    color: white;
+    font-size: 40px;
+    width: 870px;
+    text-align: center;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+
+    padding: 30px;
+
+    padding-left: 1px;
+    padding-right: 1px;
+
+    .light-page & {
+        background-color: var(--pink-2);
+    }
+    .dark-page & {
+        background-color: var(--pink-3);
+    }
+    &.very-rounded-header {
+        border-radius: 90px;
+    }
+    &.not-very-rounded-header {
+        border-radius: 24px;
+    }
+}
+/*Adaptive*/
+@media only screen and (max-width: 1111px) {.header {
+    --padding-side: 40px;
+    font-size: 20px;
+    width: fit-content;
+    padding-left: var(--padding-side);
+    padding-right: var(--padding-side);
+}
+}
+@media only screen and (max-width: 500px) {.header {
+    width: 90vw;
+}
+}
+/*Block 1*/
+/*.promo-video{
+    border-radius: 45px;
+
+    width: 573px;
+    height: 406px;
+}
+.promo-video-bg {
+    background-image: url('/images/Play.svg');
+    background-repeat: no-repeat;
+
+    width: 573px;
+    height: 406px;
+    position: relative;
+    bottom: 280px;
+    left:200px;
+}*/
+.promo-video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 573px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Центрирование */
+}
+
+.promo-video {
+    border-radius: 45px;
+    width: 100%;
+    height: auto;
+}
+
+.promo-video-bg {
+    background-image: url('/images/Play.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+}
+
+
+.video-and-text {
+    display: flex;
+    gap: 100px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+
+    width: fit-content;
+}
+.first-block-text {
+    width: 606px;
+}
+
+.first-block-photo {
+    position: absolute;
+}
+.first-block-photo-1 {
+    bottom: 5vh;
+    left: 20vw;
+}
+.first-block-photo-2 {
+    bottom: 25vh;
+    left: 50vw;
+}
+.first-block-photo-3 {
+    bottom: 5vh;
+    right: 20vw;
+}
+/*Block 1 adaptive*/
+@media only screen and (max-width: 1427px) {.video-and-text {
+    flex-direction: column;
+    gap: 0;
+    }
+    .first-block-text {
+        width: 70vw;
+
+        margin-left: auto;
+        margin-right: auto;
+        margin: 50px;
+        /*margin-top: -100px;*/
+        /*margin-left: 0;*/
+    }
+    .first-block-photo-gallery {
+        display: none;
+    }
+}
+@media only screen and (max-width: 668px) {
+    .promo-video-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        
+            & .promo-video {
+            width: 90vw;
+            height: auto;
+            }
+        }
+
+        .promo-video {
+            margin-left: auto;
+            margin-right: auto;
+        }
+}
+.promo-video-bg {
+    --size: 35%;
+    width: var(--size);
+    height: var(--size);
+}
+/*Block 2*/
+.singers-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, auto));
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    justify-content: center;
+    margin-bottom: 50px;
+
+    margin-top: 100px;
+
+    & .one-singer-block {
+        margin-bottom: 100px;
+        width: fit-content;
+    }
+    & .singer-name {
+        color: white;
+        font-size: 24px;
+        text-align: center;
+        margin-top: 65px;
+    }
+}
+/*Block 3*/
+.bilets-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, auto));
+    grid-auto-rows: minmax(100px, auto);
+    justify-content: center;
+    margin-bottom: 50px;
+    justify-items: center;
+    width: 100%;
+    max-width: 1200px; /* Подкорректировать значение по необходимости */
+    margin-left: auto;
+    margin-right: auto;
+
+    & .one-bilet-block {
+        margin-top: 100px;
+    }
+
+    & .bilet-img,
+    & .bilet-element {
+        border-radius: 24px;
+    }
+    & .bilet-element {
+        font-size: 20px;
+        text-align: center;
+        
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    & .bilet-class {
+        background-color: var(--pink-2);
+        color: white;
+    }
+    & .bilet-price {
+        background-color: var(--pink-5);
+    }
+    & .bilet-buy {
+        background-color: var(--green-1);
+        color: white;
+    }
+
+    & .bilet-elements-wrapper {
+        margin-top: 50px;
+    }
+}
+/*Block 4*/
+.plan-scheme-img-wrapper {
+    background-color: var(--pink-5);
+    width: 1249px;
+    height: 517px;
+    
+    border-radius: 24px;
+    
+    margin: auto;
+    margin-top: 100px;
+}
+/*Block 4 adaptive*/
+.plan-scheme-img-wrapper {
+    --width: 75vw;
+    width: var(--width);
+    height: calc(var(--width) / 2.4);
+    margin-bottom: calc(var(--width) / 4);
+}
+.plan-scheme {
+    width: 100%;
+     height: auto;
+}
+/*Block 5*/
+.partners-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, auto));
+    grid-auto-rows: minmax(100px, auto);
+    justify-content: center;
+    margin-bottom: 50px;
+    justify-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    & .partner-img-wrapper {
+        margin-top: 100px
+    }
+}
+/*Block 5 adaptive*/
+@media only screen and (max-width: 1111px) {
+    .partner-logo-img {
+        width: 200px;
+    }
+}
+/*Block 6*/
+.food-name {
+    background-color: var(--pink-3);
+    color: white;
+}
+/*Block 7*/
+.merch-name {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 65px;
+}
+.merch-price {
+    --padding-side: 20px;
+    background-color: #837677;
+    width: fit-content;
+    font-size: 24px;
+    border-radius: 24px;
+    padding: 10px;
+    padding-left: var(--padding-side);
+    padding-right: var(--padding-side);
+    
+    
+    position: relative;
+    top: 25px;
+    left: 200px;
+}
+/*Block 7 adaptive*/
+@media only screen and (max-width: 668px) {
+    .merch-price {
+        left: 170px;
+    }
+}
+/*Some blocks adaptive*/
+@media only screen and (max-width: 801px) {
+    .singers-block {
+    justify-items: center;
+    width: 100%;
+    max-width: 1200px;
+    }
+}
+/*Some OTHERS blocks adaptive*/
+@media only screen and (max-width: 599px) {
+    .bilets-block .one-bilet-block {
+        display: none;
+    }
+    .bilets-block .bilets-current-carousel-block,
+    .bilets-block  .food-cort-current-carousel-block {
+        display: unset;
+    }
+}
+/*Mobile carousel for this some others blocks*/
+.carousel-left-arrow-wrapper .arrow-img {
+    -moz-transform: scale(-1, -1);
+    -o-transform: scale(-1, -1);
+    -webkit-transform: scale(-1, -1);
+    transform: scale(-1, -1);
+}
+@media only screen and (min-width: 600px) {
+    .carousel-arrow-wrapper,
+    .carousel-arrow-wrapper-2 {
+        display: none;
+    }
+}
+@media only screen and (max-width: 599px) {
+.carousel-arrow-wrapper {
+    position: relative;
+        bottom: 410px;
+    }
+    #page-3 .carousel-left-arrow-wrapper {
+        right: 145px;
+        bottom: 410px;
+    }
+    #page-3 .carousel-right-arrow-wrapper {
+        left: 145px;
+        bottom: 510px;
+    }
+    #page-6 .carousel-left-arrow-wrapper {
+        right: 145px;
+        bottom: 335px;
+    }
+    #page-6 .carousel-right-arrow-wrapper {
+        left: 145px;
+        bottom: 440px;
+    }
+    .carousel-arrow-wrapper-2 {
+        position: relative;
+    }
+}
